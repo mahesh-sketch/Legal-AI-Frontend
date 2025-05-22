@@ -12,10 +12,10 @@ except ImportError:
 API_BASE = os.getenv("API_BASE_URL","https://legal-ai-backend-hjuh.onrender.com")
 
 def embed_document(content:str):
-    res = requests.post(f"{API_BASE}/embed",json={"content":content})
+    res = requests.post(f"{API_BASE}/api/embed",json={"content":content}) # Added /api prefix
     res.raise_for_status()
     return res.json()
 
 def ask_question(question:str):
-    res = requests.post(f"{API_BASE}/ask",json={"question":question})
+    res = requests.post(f"{API_BASE}/api/ask",json={"question":question}) # Added /api prefix
     return res.json()
